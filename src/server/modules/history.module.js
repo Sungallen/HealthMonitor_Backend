@@ -53,6 +53,7 @@ const addhistory = insertValues => new Promise((resolve, reject) => {
   });
 });
 
+// get method %get a user's information
 const getuserhistory = userId => new Promise((resolve, reject) => {
   connectionPool.getConnection((connectionError, connection) => {
     if (connectionError) {
@@ -69,6 +70,7 @@ const getuserhistory = userId => new Promise((resolve, reject) => {
     }
   });
 });
+
 export default {
   selectall,
   addhistory,

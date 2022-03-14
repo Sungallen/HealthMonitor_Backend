@@ -11,11 +11,15 @@
     "start": "nodemon dist/index.bundle.js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
+    "express-validation": "^1.0.2",
+    "http-status": "^1.0.1",
     "joi": "^13.0.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0"
   },

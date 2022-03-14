@@ -7,8 +7,8 @@ router.route('/:userId')
   .get(historyCtrl.userGet);
 
 router.route('/')
-  .get(historyCtrl.historyGet) /** 取得 Article 所有值組 */
-  .post(historyCtrl.historyPost); /** 新增 Article 值組 */
+  .get(historyCtrl.historyGet)
+  .post(historyCtrl.historyPost);
 
 
 export default router;

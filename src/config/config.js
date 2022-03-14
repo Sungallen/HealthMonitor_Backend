@@ -1,10 +1,11 @@
 import Joi from 'joi';
 
+
 // require and configure dotenv, will load vars in .env in process.env
 require('dotenv').config();
 
 const envVarSchema = Joi.object().keys({
-  NODE_ENV: Joi.string().default('development').allow(['development', 'production']), // 字串且預設值為development 並只允許兩種參數
+  NODE_ENV: Joi.string().default('development').allow('development'), // 字串且預設值為development 並只允許兩種參數
   PORT: Joi.number().default(8080), // 數字且預設值為 8080
   MYSQL_PORT: Joi.number().default(3306), // 數字且預設值為3306
   MYSQL_HOST: Joi.string().default('127.0.0.1'), // 字串取預設值為127.0.0.1
