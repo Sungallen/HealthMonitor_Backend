@@ -27,7 +27,7 @@ function verifyToken(req, res, next) {
     } else {
         res.status(403).send({
             code: 403,
-            message: 'you have not login！'
+            message: 'you have not login!'
         });
     }
 };

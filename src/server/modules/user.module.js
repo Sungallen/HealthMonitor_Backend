@@ -1,5 +1,6 @@
 import mysql from 'mysql';
 import config from '../../config/config';
+import query from '../database/operation.database'
 
 const connectionPool = mysql.createPool({
     connectionLimit: 10,
@@ -27,6 +28,19 @@ const addhistory = insertValues => new Promise((resolve, reject) => {
     });
 });
 
+const realtimedata = mouseid => new Promise((resolve, reject) => {
+    query.query('select * from(select *, row_number() over (partition by u_mouse_id order by time desc) as sn from history) as R where R.sn = 1 and R.u_mouse_id = ?'
+        , [mouseid]).then((result) => {
+            if (result.length > 0) {
+                resolve(result);
+            } else {
+                reject('The data does not exist.')
+            }
+        });
+});
+
+
 export default {
-    addhistory
+    addhistory,
+    realtimedata
 };
