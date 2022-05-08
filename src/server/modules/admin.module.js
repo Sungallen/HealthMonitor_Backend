@@ -30,11 +30,14 @@ const Login = values => new Promise((resolve, reject) => {
                 };
                 const token = jwt.sign({ payload, exp: Math.floor(Date.now() / 1000) + (86500 * 365) }, 'my_secret_key');
                 resolve({
-                    message: 'Login Successfully',
+                    //                    message: 'Login Successfully',
+                    message: {
+                        a: ["123", "21"]
+                    },
                     token
                 });
             } else {
-                reject('Wrong Password');
+                reject({ message: 'Wrong Password' });
             }
         } else {
             reject('The account does not exist.');
@@ -51,6 +54,7 @@ const searchalluser = admin => new Promise((resolve, reject) => {
         }
     }).catch((error) => { reject(error); });
 });
+
 
 
 
